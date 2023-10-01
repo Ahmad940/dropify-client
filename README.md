@@ -1,46 +1,48 @@
-# dropify-client
+# Dropify Client
 
-This template should help get you started developing with Vue 3 in Vite.
+ [Dropify](https://github.com/Ahmad940/dropify) client 🔥🚀
 
-## Recommended IDE Setup
+## Hacktoberfest
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+> [!IMPORTANT]  
+> Please pay attention to the following important points:
+> 1. Quality Matters: We value well-written and clear contributions. Spammy or vague contributions with unhelpful commit messages will not be accepted. It's important to provide meaningful contributions.
+> 
+> 2. Contribution Guidelines: Ensure your pull requests meet our [contribution](https://github.com/Ahmad940/dropify/blob/main/CONTRIBUTING.md) guidelines. Failing to meet these requirements may result in your pull request being rejected.
 
-## Type Support for `.vue` Imports in TS
+### Join Us for Hacktoberfest!
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+We welcome all developers, including beginners, to contribute to our project. If you're new to this project and want to participate in Hacktoberfest, keep an eye out for issues labeled with ["Hacktoberfest."](https://github.com/Ahmad940/dropify/issues?q=is%3Aissue+is%3Aopen+label%3AHacktoberfest) We encourage you to get involved and make your mark on Dropify!
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Tech Stack
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+Dropify is built using a variety of technologies that work together to make the platform function. Here's a simplified explanation of the technologies used:
 
-## Customize configuration
+- [Nodejd](https://nodejs.org/en) -  The javascript runtime that powers the dropify client.
+- [Vue](https://vuejs.org) - A JavaScript framework that enhances the user interface and interactivity of Dropify.
+- [Tailwind CSS](https://tailwindcss.com/) - A CSS framework that simplifies styling and design for a polished user experience.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+In summary, Dropify client relies on these technologies to deliver a powerful and user-friendly platform for creating and managing cloud servers. These tools and frameworks work together to make Dropify robust and efficient, providing a seamless experience for users
 
-## Project Setup
+## Local development Setup
 
-```sh
-npm install
-```
+#### Prerequisites
 
-### Compile and Hot-Reload for Development
+Before contributing or adding a new feature, please make sure you have already installed the following tools:
 
-```sh
-npm run dev
-```
+- [Nodejs](https://nodejs.org/en) (Works with Go version `v18.13.0` and above)
 
-### Type-Check, Compile and Minify for Production
+### Set up
+Read the set up guide [here](https://github.com/Ahmad940/dropify/blob/main/SET_UP.md)
 
-```sh
-npm run build
-```
+## Support
 
-### Lint with [ESLint](https://eslint.org/)
+Don't forget to leave a star ⭐️.
 
-```sh
-npm run lint
-```
+## Our Commitment to a Welcoming Community
+
+We are committed to creating a community where everyone feels respected and valued. We pledge to foster an environment that is open, inclusive, and diverse.
+
+If you encounter or become aware of any behavior that goes against our principles, please know that you can report it. For more information, please refer to our  [Code of Conduct](https://github.com/Ahmad940/dropify/blob/main/CODE_OF_CONDUCT.md) for more details.
+
+In summary, we are dedicated to ensuring that our community is a safe and welcoming space for all.

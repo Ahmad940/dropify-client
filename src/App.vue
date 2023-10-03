@@ -11,6 +11,5 @@ import { RouterView } from 'vue-router';
   </main>
 
   <footer>
-    
   </footer>
 </template>

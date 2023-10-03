@@ -15,12 +15,12 @@ const login = () => {
   <div class="min-h-screen grid place-items-center justify-center">
     <div>
       <h1 class="text-3xl text-center font-black mb-5">Log in to Dropify</h1>
-      
+
       <form class="grid gap-3" @submit.prevent="login">
         <CustomInput type="email" v-model="email" placeholder="Email Address" ariaLabel="Email Address" />
         <CustomInput type="password" v-model="password" placeholder="Password" ariaLabel="Password" />
-        
-        <CustomButton class="mt-2">Submit</CustomButton>
+
+        <CustomButton type="submit" class="mt-2">Submit</CustomButton>
       </form>
     </div>
   </div>

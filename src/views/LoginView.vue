@@ -7,7 +7,8 @@ const email = ref('')
 const password = ref('')
 
 const login = () => {
-  console.log('wee')
+  console.log("Email: ", email.value)
+  console.log("Password: ", password.value)
 }
 </script>
 

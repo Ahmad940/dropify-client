@@ -15,8 +15,6 @@ const password = ref('')
 const loading = ref(false);
 
 const login = async () => {
-  // TODO: Input validation
-  // TODO: Redirect to home page on successful login
   if (!username.value || !password.value) {
     Notify.failure("Please fill in all fields")
     return

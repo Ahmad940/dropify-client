@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 body {
-  @apply min-h-screen bg-slate-50 text-black dark:bg-black dark:text-slate-50;
+  @apply min-h-screen bg-slate-50 text-black dark:bg-black dark:text-slate-50 transition-colors duration-500;
 }

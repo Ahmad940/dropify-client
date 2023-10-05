@@ -10,6 +10,7 @@ type InputProps = {
   autocomplete?: string
   placeholder?: string
   class?: string
+  required?: boolean
 }
 
 defineProps<InputProps>()
@@ -24,12 +25,9 @@ const toggleShowPassword = () => { showPassword.value = !showPassword.value }
 <template>
   <div class="relative">
     <input
-      class="px-2 py-3 rounded-md text-white outline outline-1 outline-slate-400 hover:outline-slate-100 focus:shadow-[0px_0px_0px_2px] transition-shadow duration-700 focus:shadow-slate-300 bg-transparent"
-      :class="class" :type="((type === 'password') && showPassword) ? 'text' : type"
-      :placeholder="placeholder"
-      :aria-label="ariaLabel"
-      :value="modelValue"
-      :autocomplete="autocomplete"
+      class="px-2 py-3 w-full rounded-md outline outline-1 outline-slate-400 hover:outline-slate-600 focus-visible:outline-[3px] dark:hover:outline-slate-100 transition-shadow duration-700 bg-transparent"
+      :required="required || false" :class="class" :type="((type === 'password') && showPassword) ? 'text' : type"
+      :placeholder="placeholder" :aria-label="ariaLabel" :value="modelValue" :autocomplete="autocomplete"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement)?.value)" />
 
     <button type="button" v-if="type === 'password'" @click.stop="toggleShowPassword"

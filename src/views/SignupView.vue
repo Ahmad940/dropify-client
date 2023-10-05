@@ -14,7 +14,7 @@ const password = ref('')
 
 const loading = ref(false);
 
-const login = async () => {
+const signup = async () => {
   // TODO: Input validation
   // TODO: Redirect to home page on successful login
   if (!username.value || !password.value) {
@@ -24,7 +24,7 @@ const login = async () => {
 
   if (username.value && password.value) {
     loading.value = true
-    const response = await authRequests().login({ username: username.value, password: password.value })
+    const response = await authRequests().signUp({ username: username.value, password: password.value })
     loading.value = false
 
     if (response.success) {
@@ -37,21 +37,21 @@ const login = async () => {
 </script>
 
 <template>
-  <div class="min-h-screen grid place-items-center justify-center">
+  <div class="min-h-screen grid place-items-center">
     <div>
-      <h1 class="text-3xl text-center font-black mb-5">Log in to Dropify</h1>
+      <h1 class="text-3xl text-center font-black mb-5 max-w-[20ch]">Create your Dropify account</h1>
 
-      <form class="grid gap-3" @submit.prevent="login">
+      <form class="grid gap-3" @submit.prevent="signup">
         <CustomInput type="text" v-model="username" placeholder="Username" ariaLabel="Username" required />
         <CustomInput type="password" v-model="password" placeholder="Password" ariaLabel="Password" required />
 
         <CustomButton :loading="loading" type="submit" class="mt-2">Submit</CustomButton>
 
         <span class="mt-2 text-center">
-          Don't have an account?
-          <RouterLink to="/auth/signup"
+          Already have an account?
+          <RouterLink to="/auth/login"
             class="underline transition-colors duration-500 text-blue-600 hover:text-blue-800 dark:hover:text-blue-300 [&>svg]:hover:fill-blue-800 [&>svg]:dark:hover:fill-blue-300">
-            Sign Up
+            Login
             <ri-arrow-right-line class="transition-colors duration-500 fill-blue-600 inline w-4 h-4" />
           </RouterLink>
         </span>

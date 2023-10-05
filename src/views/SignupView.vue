@@ -28,7 +28,7 @@ const signup = async () => {
     loading.value = false
 
     if (response.success) {
-      Notify.success("Login successful")
+      Notify.success("Signup successful")
       router.push('/dashboard')
     }
     else Notify.failure(response.message)

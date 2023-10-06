@@ -1,18 +1,14 @@
-import AxiosService from '@/services/Axios.service'
+import { useApi } from '@/composables/useApi'
+import { useUserStore } from '@/stores/user.store'
 import type { AxiosResponse } from 'axios'
+import type { Ref } from 'vue'
 import { apiResponse } from '../apiResponse'
-import { LOCALSTORAGE_TOKEN_KEY } from '../constants'
+import { COOKIE_TOKEN_KEY } from '../constants/auth.constants'
 
-const axiosInstance = AxiosService.axiosInstance
-const axiosProtectedInstance = AxiosService.axiosProtectedInstance
-
-const authRequests = (bearerToken: string = localStorage.getItem('token') || '') => ({
+const authRequests = () => ({
   profile: async () => {
     try {
-      const response = await axiosProtectedInstance(bearerToken)({
-        method: 'GET',
-        url: '/auth/profile'
-      })
+      const response = await useApi().get('/auth/profile')
       return apiResponse({ success: true, message: 'Fetched.', data: response.data })
     } catch (err: any) {
       return apiResponse({
@@ -22,27 +18,22 @@ const authRequests = (bearerToken: string = localStorage.getItem('token') || '')
       })
     }
   },
-  login: async (credentials: { username: string; password: string }) => {
+  login: async (credentials: { username: string; password: string }, loading?: Ref<boolean>) => {
     try {
       // ? log user in and get token
-      const response: AxiosResponse<{ token: string }> = await axiosInstance({
-        method: 'POST',
-        url: '/auth/login',
-        data: credentials
-      })
+      const response: AxiosResponse<{ token: string }> = await useApi(loading).post(
+        '/auth/login',
+        credentials
+      )
 
-      const token = response.data.token
-      localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, token)
-
-      // fetch user's details
-      // const fetchProfile = await authRequests(token).profile()
+      const userStore = useUserStore()
+      userStore.setToken(response.data.token)
 
       return apiResponse({
         success: true,
         message: 'User successfully logged in.',
         data: {
-          token,
-          // user: fetchProfile
+          token: userStore.token.get(COOKIE_TOKEN_KEY)
         }
       })
     } catch (err: any) {
@@ -55,14 +46,10 @@ const authRequests = (bearerToken: string = localStorage.getItem('token') || '')
   },
   signUp: async (data: { username: string; password: string }) => {
     try {
-      const response: AxiosResponse<{ token: string }> = await axiosInstance({
-        method: 'POST',
-        url: '/auth/register',
-        data
-      })
+      const response: AxiosResponse<{ token: string }> = await useApi().post('/auth/register', data)
 
       const token = response.data.token
-      localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, token)
+      localStorage.setItem(COOKIE_TOKEN_KEY, token)
 
       // fetch user's details
       // const fetchProfile = await authRequests(token).profile()
@@ -71,7 +58,7 @@ const authRequests = (bearerToken: string = localStorage.getItem('token') || '')
         success: true,
         message: 'Signup successful.',
         data: {
-          token,
+          token
           // user: fetchProfile
         }
       })

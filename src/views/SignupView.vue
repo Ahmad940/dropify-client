@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import CustomButton from '@/components/simple/CustomButton.vue'
-import CustomInput from '@/components/simple/CustomInput.vue'
-import authRequests from '@/utils/apiRequests/auth.request'
+import Button from '@/components/simple/Button.vue'
+import Input from '@/components/simple/Input.vue'
 import { Notify } from 'notiflix'
 import { ref } from 'vue'
 import RiArrowRightLine from 'vue-remix-icons/icons/ri-arrow-right-line.vue'
 import { useRouter } from 'vue-router'
+
+import authRequests from '@/utils/apiRequests/auth.request'
 
 const router = useRouter()
 
@@ -42,14 +43,14 @@ const signup = async () => {
       <h1 class="text-3xl text-center font-black mb-5 max-w-[20ch]">Create your Dropify account</h1>
 
       <form class="grid gap-3" @submit.prevent="signup">
-        <CustomInput
+        <Input
           type="text"
           v-model="username"
           placeholder="Username"
           ariaLabel="Username"
           required
         />
-        <CustomInput
+        <Input
           type="password"
           v-model="password"
           placeholder="Password"
@@ -57,7 +58,7 @@ const signup = async () => {
           required
         />
 
-        <CustomButton :loading="loading" type="submit" class="mt-2">Submit</CustomButton>
+        <Button :loading="loading" type="submit" class="mt-2">Submit</Button>
 
         <span class="mt-2 text-center">
           Already have an account?
